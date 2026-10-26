@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fbf4e9">
+  <meta name="description" content="Find your somewhere with Wayora. Discover beautiful destinations and plan your next adventure.">
+  <title>Wayora | Find your somewhere</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="logo" href="#home">wayora<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#moments">Travel moments</a>
+      <a href="#planner">Plan a trip</a>
+      <button class="login-button" id="loginOpen" type="button">Log in ↗</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85"
+        alt="Peaceful mountain lake surrounded by nature"
+        onerror="handleImageError(this)"
+      >
+      <div class="hero-shade"></div>
+
+      <div class="hero-content">
+        <span class="eyebrow hero-eyebrow">A little escape looks good on you</span>
+        <h1>Find your<br><em>somewhere.</em></h1>
+        <p>For the places you've saved, the places you've dreamed of, and the places you haven't met yet.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#destinations">Explore destinations <span>↗</span></a>
+          <a class="hero-text-link" href="#planner">Let's plan something beautiful ↓</a>
+        </div>
+      </div>
+
+      <div class="hero-note">
+        <span class="note-star">✳</span>
+        <span>Less scrolling.<br>More soul-searching.</span>
+      </div>
+
+      <div class="hero-counter">01 / YOUR NEXT CHAPTER</div>
+    </section>
+
+    <section class="intro section-wrap">
+      <div class="intro-small">YOUR LITTLE CORNER OF THE WORLD</div>
+      <div class="intro-content">
+        <h2>Somewhere between<br> <em>lost and found.</em></h2>
+        <div>
+          <p>Maybe it's a slow morning in Edinburgh. Maybe it's salty hair in Bali. Maybe you just need a new view.</p>
+          <p>Wherever your heart is wandering, let's find a way there.</p>
+          <a class="underlined-link" href="#destinations">Meet your next destination <span>↗</span></a>
+        </div>
+      </div>
+      <div class="intro-decoration">✳</div>
+    </section>
+
+    <section class="destinations-section section-wrap" id="destinations">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">THE WORLD IS CALLING</span>
+          <h2>Places to <em>daydream about.</em></h2>
+          <p>Big adventures, little escapes, and everything in between.</p>
+        </div>
+        <span class="handwritten">where to next? ↙</span>
+      </div>
+
+      <div class="destination-controls">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="destinationSearch" type="search" placeholder="Search cities, countries, vibes..." autocomplete="off">
+        </label>
+
+        <div class="filter-row" id="filterRow">
+          <button class="filter-chip active" type="button" data-filter="all">All places</button>
+          <button class="filter-chip" type="button" data-filter="nature">Nature</button>
+          <button class="filter-chip" type="button" data-filter="beach">Beach</button>
+          <button class="filter-chip" type="button" data-filter="city">City life</button>
+          <button class="filter-chip" type="button" data-filter="culture">Culture</button>
+          <button class="filter-chip" type="button" data-filter="romantic">Romantic</button>
+        </div>
+      </div>
+
+      <div class="results-line">
+        <span id="resultCount">Finding your somewhere...</span>
+        <span>Tap the ♡ to save a favourite</span>
+      </div>
+
+      <div class="destination-grid" id="destinationGrid">
+        <p class="loading-message">Collecting beautiful places for you…</p>
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span>🌷</span>
+        <h3>No places found just yet.</h3>
+        <p>Try another city, country, or filter.</p>
+      </div>
+
+      <button class="button button-outline show-more-button" id="showMoreBtn" type="button">
+        Show me more places ↓
+      </button>
+    </section>
+
+    <section class="quote-section">
+      <img
+        class="quote-image"
+        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=80"
+        alt="Sunlight falling over a mountain range"
+        onerror="handleImageError(this)"
+      >
+      <div class="quote-overlay"></div>
+      <div class="quote-content">
+        <span class="eyebrow">A GENTLE REMINDER</span>
+        <h2>"Collect moments,<br>not just <em>places.</em>"</h2>
+        <p>Take the long way. Order the unfamiliar thing. Stay for the sunset.</p>
+      </div>
+      <span class="quote-mark">“</span>
+    </section>
+
+    <section class="moments-section section-wrap" id="moments">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">POSTCARDS FROM EVERYWHERE</span>
+          <h2>A mood, a moment, <em>a memory.</em></h2>
+          <p>A little inspiration for the trip you keep thinking about.</p>
+        </div>
+      </div>
+
+      <div class="moments-grid">
+        <article class="moment-card moment-tall">
+          <img
+            src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80"
+            alt="Colourful Italian coastal village"
+            loading="lazy"
+            onerror="handleImageError(this)"
+          >
+          <div class="moment-caption">
+            <span>01 — SLOW LIVING</span>
+            <h3>Somewhere by the sea</h3>
+          </div>
+        </article>
+
+        <article class="moment-card">
+          <img
+            src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80"
+            alt="Traditional Kyoto street"
+            loading="lazy"
+            onerror="handleImageError(this)"
+          >
+          <div class="moment-caption">
+            <span>02 — QUIET WANDERING</span>
+            <h3>Take the scenic route</h3>
+          </div>
+        </article>
+
+        <article class="moment-card">
+          <img
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
+            alt="Tropical greenery and island scenery"
+            loading="lazy"
+            onerror="handleImageError(this)"
+          >
+          <div class="moment-caption">
+            <span>03 — ISLAND TIME</span>
+            <h3>Out of office, into nature</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="planner-section" id="planner">
+      <div class="planner-wrap">
+        <div class="planner-intro">
+          <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+          <h2>Okay, but what if<br>we actually <em>went?</em></h2>
+          <p>Tell us what you're dreaming of. We'll give you a rough budget and a simple starting point for your journey.</p>
+
+          <div class="planner-perks">
+            <div><span>✳</span><p>Made for your kind of trip</p></div>
+            <div><span>♡</span><p>Budget-friendly inspiration</p></div>
+            <div><span>↗</span><p>A plan you can make your own</p></div>
+          </div>
+        </div>
+
+        <form class="planner-form" id="plannerForm">
+          <div class="form-topline">
+            <span>THE LITTLE TRIP PLANNER</span>
+            <span>✳ 01 / 04</span>
+          </div>
+
+          <label for="tripDestination">Where are we going?</label>
+          <select id="tripDestination" required>
+            <option value="">Choose a destination</option>
+          </select>
+
+          <div class="form-two-columns">
+            <div>
+              <label for="tripDays">How many days?</label>
+              <select id="tripDays" required>
+                <option value="3">3 days</option>
+                <option value="5" selected>5 days</option>
+                <option value="7">7 days</option>
+                <option value="10">10 days</option>
+                <option value="14">14 days</option>
+              </select>
+            </div>
+            <div>
+              <label for="tripPeople">Who's coming?</label>
+              <select id="tripPeople" required>
+                <option value="1">Just me</option>
+                <option value="2" selected>2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6">6 people</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="tripStyle">Pick your travel mood</label>
+          <select id="tripStyle" required>
+            <option value="budget">Cute trip, careful budget</option>
+            <option value="comfort" selected>A little comfort, a little adventure</option>
+            <option value="luxury">Treat-yourself energy</option>
+          </select>
+
+          <button class="button button-dark planner-submit" type="submit">Dream up my trip ↗</button>
+          <p class="form-disclaimer">Estimates are approximate, in INR, and intended for inspiration—not live booking prices.</p>
+
+          <div class="trip-result" id="tripResult" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="newsletter-section section-wrap">
+      <span class="newsletter-sparkle">✳</span>
+      <span class="eyebrow">A LITTLE NOTE FROM THE WORLD</span>
+      <h2>Keep a little room for <em>wonder.</em></h2>
+      <p>Save this page for the days when your heart wants to go somewhere.</p>
+      <a href="#destinations" class="button button-outline">Find your somewhere ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="logo footer-logo" href="#home">wayora<span>.</span></a>
+        <p>For the curious hearts<br>and the almost-packed bags.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <a href="#destinations">Destinations</a>
+        <a href="#moments">Travel moments</a>
+        <a href="#planner">Trip planner</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Say hello</h4>
+        <a href="mailto:hello@wayora.example">hello@wayora.example</a>
+        <span>Instagram · Pinterest</span>
+      </div>
+
+      <div class="footer-signoff">
+        <span>Made for the love of getting lost.</span>
+        <span class="footer-flower">✳</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="copyrightYear"></span> Wayora. All rights reserved.</span>
+      <a href="#home">Back to the top ↑</a>
+      <span>Find your somewhere.</span>
+    </div>
+  </footer>
+
+  <div class="modal" id="loginModal" hidden>
+    <div class="modal-backdrop" id="loginBackdrop"></div>
+    <section class="login-panel" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="modal-close" id="loginClose" type="button" aria-label="Close login">×</button>
+      <span class="eyebrow">WELCOME, WANDERER</span>
+      <h2 id="loginTitle">Your little corner<br>of the <em>world.</em></h2>
+      <p>This is a demo sign-in form for your website design.</p>
+
+      <form id="loginForm">
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" type="email" placeholder="you@example.com" required>
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" placeholder="Enter a password" required minlength="4">
+        <button class="button button-dark planner-submit" type="submit">Continue ↗</button>
+        <p class="login-message" id="loginMessage" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
